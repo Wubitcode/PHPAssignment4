@@ -1,34 +1,55 @@
-# PHPAssignment4 – SportsPro Technical Support
-
-Course: MWD4A (PHPSQL)  
-Course Name: PHP and MySQL Development  
-Textbook: Murach's PHP and MySQL (4th Edition)
+# PHPAssignment4 - SportsPro Technical Support
 
 ## Overview
-This project is part of Assignment 4 and continues the development of the SportsPro Technical Support application.
+This project is a **PHP and MySQL web application** for managing customer product registrations for a technical support system.  
 
-The application allows administrators, technicians, and customers to manage technical support incidents using the tech_support database.
+The project allows:
+- Customers to **register themselves** with their details.
+- Customers to **log in**.
+- Customers to **register products**.
+- Admin to **add products**.
+- System to handle **success, error, and duplicate messages** during registration.
 
-## Technologies Used
-- PHP 8
-- MySQL
-- XAMPP
-- Visual Studio Code
-- Git & GitHub
+## Features
 
-## Database
-The application uses the tech_support database.
-To restore the database:
-1. Open phpMyAdmin
-2. Import tech_support.sql
+### Customer Side
+1. **Registration**
+   - Customers can register with **first name, last name, email, and password**.
+   - Passwords are **hashed** for security.
+   - After registration, the customer is **automatically logged in**.
 
-## Features Implemented (Assignment 4)
-- Technician selection
-- View open incidents assigned to technician
-- Update incident details
-- Close incidents
-- Secure POST handling
-- Proper redirects
+2. **Login**
+   - Customers can log in with their **email**.
+   - Session is used to track logged-in users.
+
+3. **Product Registration**
+   - Logged-in customers can register products from a **dropdown of available products**.
+   - Success message includes the **product code**.
+   - Handles **duplicate registrations** and missing selection errors.
+
+### Admin Side
+- Admin can **add new products** (name, version, release date) via `project_controller.php`.
+- Admin can view all products in `project_manager.php`.
+
+## Database Structure
+- **customers**: stores customer info (first name, last name, email, passwordHash, etc.)  
+- **products**: stores products (productCode, name, version, releaseDate)  
+- **registrations**: stores which customer registered which product and when  
+
+## How It Works
+1. Customer visits **login page**:  
+   `http://localhost/PHPAssignment4/views/registrations/customer_login.php`
+
+2. After login:
+   - Customer is redirected to **register_product.php** to select and register products.
+   - Messages show **success, duplicate, or error**.
+
+3. Product registration is handled by `save_registration.php`:
+   - Inserts record into `registrations` table.
+   - Redirects back with appropriate status.
+
+4. Admin can add products via `project_controller.php`:
+   - Uses the `add` action to insert new product into `products` table.
 
 
 
