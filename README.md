@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # PHPAssignment4 - SportsPro Technical Support
 
 ## Overview
@@ -53,3 +54,40 @@ The project allows:
 
 
 
+=======
+# PHPAssignment2
+
+This is my PHPAssignment2 project for school. It is a technical support system built using PHP and organized using the MVC (Model-View-Controller) structure.
+
+## Project Structure
+
+- `controllers/` – Handles the logic of the application.
+- `models/` – Stores the data structure (currently empty, `.gitkeep` added).
+- `views/` – Contains all the front-end pages:
+  - `incidents/` – Incident management pages.
+  - `registrations/` – Product registration pages.
+  - `technicians/` – Technician management pages.
+  - `header.php` and `footer.php` – Common layout files.
+- `db/` – Database scripts.
+- `index.php` – Main entry point of the project.
+- `export/` – Files for exporting data.
+
+* Features
+
+- Create, view, update, and assign incidents.
+- Register products.
+- Manage technicians.
+- Organized with MVC for scalability and maintainability.
+
+* Future Work
+
+This project is part of a series of assignments. Not all features are fully implemented yet.  
+The remaining functionalities will be completed in subsequent assignments.  
+
+Examples of future improvements:  
+- Complete database models in the `models/` folder.  
+- Add advanced incident reporting features.  
+- Enhance user interface and styling.
+
+# PHPAssignment3
+>>>>>>> 876668e (Initial commit - PHPAssignment4 project with registration and product features)
