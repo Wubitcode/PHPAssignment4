@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Feb 09, 2026 at 12:14 AM
+-- Generation Time: Feb 15, 2026 at 03:08 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -79,7 +79,8 @@ INSERT INTO `customers` (`customerID`, `firstName`, `lastName`, `address`, `city
 (2, 'John', 'Smith', '123 Main St', 'Toronto', 'ON', 'M1M1M1', 'CA', '416-555-1234', 'john.smith@email.com', 'test123'),
 (3, 'Dan', 'sam', 'mmm3', 'toronto', 'canada', 'w24R', 'CA', '12345678', 'dan@example.com', NULL),
 (4, 'Tata', 'Dagm', '123love st', 'toronto', 'on', 'm14w2', 'ca', '12345432', 'tata@example.com', NULL),
-(5, 'Elu', 'Bruk', '123we', 'durham', 'on', 'm6w3xy', 'CA', '9871234567', 'elu@gmail.com', NULL);
+(5, 'Elu', 'Bruk', '123we', 'durham', 'on', 'm6w3xy', 'CA', '9871234567', 'elu@gmail.com', NULL),
+(7, 'Kelly', 'Irvin', 'M1S7P5', 'Toronto', 'On', '1234', 'CA', '123456789', 'kelly@example.com', NULL);
 
 -- --------------------------------------------------------
 
@@ -147,7 +148,13 @@ INSERT INTO `registrations` (`registrationID`, `customerID`, `productCode`, `reg
 (3, 2, 'DRAFT10', '2026-02-05 21:19:46'),
 (4, 2, 'LEAGD10', '2026-02-06 15:11:06'),
 (5, 2, 'TRNY20', '2026-02-06 15:11:21'),
-(6, 3, '003', '2026-02-06 23:46:21');
+(6, 3, '003', '2026-02-06 23:46:21'),
+(9, 3, '0002', '2026-02-12 21:00:41'),
+(10, 4, '003', '2026-02-13 06:37:29'),
+(11, 4, 'LEAG10', '2026-02-13 07:03:02'),
+(15, 4, 'DRAFT10', '2026-02-13 15:13:55'),
+(17, 3, 'TRNY20', '2026-02-15 07:35:22'),
+(18, 7, 'TRNY20', '2026-02-15 08:11:16');
 
 -- --------------------------------------------------------
 
@@ -221,6 +228,7 @@ ALTER TABLE `products`
 ALTER TABLE `registrations`
   ADD PRIMARY KEY (`registrationID`),
   ADD UNIQUE KEY `uq_customer_product` (`customerID`,`productCode`),
+  ADD UNIQUE KEY `uniq_customer_product` (`customerID`,`productCode`),
   ADD KEY `fk_reg_product` (`productCode`);
 
 --
@@ -244,7 +252,7 @@ ALTER TABLE `administrators`
 -- AUTO_INCREMENT for table `customers`
 --
 ALTER TABLE `customers`
-  MODIFY `customerID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `customerID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `incidents`
@@ -256,7 +264,7 @@ ALTER TABLE `incidents`
 -- AUTO_INCREMENT for table `registrations`
 --
 ALTER TABLE `registrations`
-  MODIFY `registrationID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `registrationID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `technicians`
@@ -293,4 +301,3 @@ COMMIT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
-echo "# PHPAssignment3" >> README.md
